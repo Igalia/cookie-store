@@ -549,9 +549,9 @@ typedef sequence<CookieListItem> CookieList;
 <div algorithm>
 The <dfn method for=CookieStore>get(|name|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |list| be the results of running [=query cookies=] with
@@ -566,13 +566,13 @@ The <dfn method for=CookieStore>get(|name|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>get(|options|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. If |options| is empty, then return [=a promise rejected with=] a {{TypeError}}.
 1. If |options|["{{CookieStoreGetOptions/url}}"] is present, then run these steps:
     1. Let |parsed| be the result of [=basic URL parser|parsing=] |options|["{{CookieStoreGetOptions/url}}"] with [=/this=]'s [=relevant settings object=]'s [=API base URL=].
-    1. If the [=current global object=] is a {{Window}} object and |parsed| does not [=url/equal=] |url|,
+    1. If the [=current principal global object=] is a {{Window}} object and |parsed| does not [=url/equal=] |url|,
         then return [=a promise rejected with=] a {{TypeError}}.
     1. If |parsed|'s [=url/origin=] and |url|'s [=url/origin=] are not the [=same origin=],
         then return [=a promise rejected with=] a {{TypeError}}.
@@ -607,9 +607,9 @@ The <dfn method for=CookieStore>get(|options|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>getAll(|name|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |list| be the results of running [=query cookies=] with
@@ -623,12 +623,12 @@ The <dfn method for=CookieStore>getAll(|name|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>getAll(|options|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. If |options|["{{CookieStoreGetOptions/url}}"] is present, then run these steps:
     1. Let |parsed| be the result of [=basic URL parser|parsing=] |options|["{{CookieStoreGetOptions/url}}"] with [=/this=]'s [=relevant settings object=]'s [=API base URL=].
-    1. If the [=current global object=] is a {{Window}} object and |parsed| does not [=url/equal=] |url|,
+    1. If the [=current principal global object=] is a {{Window}} object and |parsed| does not [=url/equal=] |url|,
         then return [=a promise rejected with=] a {{TypeError}}.
     1. If |parsed|'s [=url/origin=] and |url|'s [=url/origin=] are not the [=same origin=],
         then return [=a promise rejected with=] a {{TypeError}}.
@@ -668,9 +668,9 @@ The <dfn method for=CookieStore>getAll(|options|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>set(|name|, |value|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |r| be the result of running [=set a cookie=] with
@@ -686,9 +686,9 @@ The <dfn method for=CookieStore>set(|name|, |value|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>set(|options|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |r| be the result of running [=set a cookie=] with
@@ -722,9 +722,9 @@ The <dfn method for=CookieStore>set(|options|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>delete(|name|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |r| be the result of running [=delete a cookie=] with
@@ -743,9 +743,9 @@ The <dfn method for=CookieStore>delete(|name|)</dfn> method steps are:
 <div algorithm>
 The <dfn method for=CookieStore>delete(|options|)</dfn> method steps are:
 
-1. Let |origin| be the [=current settings object=]'s [=/origin=].
+1. Let |origin| be the [=current principal settings object=]'s [=/origin=].
 1. If |origin| is an [=opaque origin=], then return [=a promise rejected with=] a "{{SecurityError}}" {{DOMException}}.
-1. Let |url| be the [=current settings object=]'s [=creation URL=].
+1. Let |url| be the [=current principal settings object=]'s [=creation URL=].
 1. Let |p| be [=a new promise=].
 1. Run the following steps [=in parallel=]:
     1. Let |r| be the result of running [=delete a cookie=] with
